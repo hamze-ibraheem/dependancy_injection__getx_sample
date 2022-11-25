@@ -50,13 +50,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var controller = Get.put(
-    Controller(),
-    tag: 'coding task foundation',
-    permanent: true,
-  );
+  // var controller = Get.put(
+  //   Controller(),
+  //   tag: 'coding task foundation',
+  //   permanent: true,
+  // );
+
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => Controller(), tag: 'coding task foundation', fenix: true);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -93,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () =>
                   Get.find<Controller>(tag: 'coding task foundation'),
+              // Get.find<Controller>(),
               child: const Text('Click me!'),
             ),
           ],
