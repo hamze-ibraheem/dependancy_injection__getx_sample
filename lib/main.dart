@@ -59,7 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     //Get.lazyPut(() => Controller(), tag: 'coding task foundation', fenix: true);
-    Get.create(() => Controller());
+    // Get.create(() => Controller());
+    Get.putAsync<Controller>(() async => await Controller());
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -96,7 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () =>
                   // Get.find<Controller>(tag: 'coding task foundation'),
-                  Get.find<Controller>(),
+                  //Get.find<Controller>(),
+                  Get.find<Controller>().increament(),
               child: const Text('Click me!'),
             ),
           ],
